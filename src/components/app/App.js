@@ -9,7 +9,7 @@ function App() {
           Brainium
         </p>
         
-        <span style={{color:"blue"}}>Feel yourself getting smarter</span>
+        <span style={{color:"blue"}}>Wrinkle Your Brain</span>
         
       </header>
     </div>
