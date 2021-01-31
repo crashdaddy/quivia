@@ -4,6 +4,7 @@ import logo from './brainium-logo2.png'
 import brain from './brain.png'
 import wrongMark from './brainium-wrongMark.gif'
 import skipButton from './brainium-skip.png';
+import HighScore from '../highscore/HighScore'
 
 class App extends Component {
   constructor(props) {
@@ -153,7 +154,7 @@ skipQuestion() {
 
           {this.state.gameOver && 
           <div>
-            Game Over
+            <HighScore score={this.state.score} />
           </div>
           }
       </header>
