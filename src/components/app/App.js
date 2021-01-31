@@ -106,7 +106,7 @@ getRandomInt = (min, max) => {
         </span>
         
         <p/>
-        {this.state.questions && this.state.questions.map( question => 
+        {this.state.questions && !this.state.gameOver && this.state.questions.map( question => 
           <div style={{width:"100%"}}>
             <div dangerouslySetInnerHTML={{ __html: question.question }}></div><p/>
             <div style={{textAlign:"center",display:"flex",flexDirection:"row",justifyContent:"space-around",alignItems:"center",alignContent:"center"}}>
