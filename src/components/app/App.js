@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import logo from './brainiumLogo.png'
+import logo from './brainium-logo2.png'
 import brain from './brain.png'
 
 class App extends Component {
@@ -101,9 +101,8 @@ getRandomInt = (min, max) => {
     <div className="App">
       <header className="App-header">
         <img src={logo} style={{width:"200px"}} />
-        <span>
-          Brainium - <span style={{color:"blue"}}>Wrinkle Your Brain</span>
-        </span>
+        <span style={{color:"lightgreen"}}>Wrinkle Your Brain</span>
+        
         
         <p/>
         {this.state.questions && !this.state.gameOver && this.state.questions.map( question => 
