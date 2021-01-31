@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router';
 import App from './components/app/App';
 import LeaderBoard from './components/leaderboard/LeaderBoard';
+import Contributors from './components/contributors/Contributors';
 
 const Router = () => {
     return (
@@ -11,6 +12,7 @@ const Router = () => {
             {/* <Route path="/about" component={About} /> */}
             <Route exact path="/" render={(props) => <App {...props}  key={Date.now()} />}/>
             <Route path="/leaders" render={(props) => <LeaderBoard />} />
+            <Route path="/contributors" render={(props)=><Contributors />}/>
             {/* <Route path="/login" component={Login}/> */}
             {/* <Route path="/faves" component={Favorites}/> */}
                 {/* <ProtectedRoute path="/profile/:user" render={(props) => <Profile {...props} key={Date.now()} />} /> */}
