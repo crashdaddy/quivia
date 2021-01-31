@@ -3,6 +3,7 @@ import '../../App.css';
 import logo from './brainium-logo2.png'
 import brain from './brain.png'
 import wrongMark from './brainium-wrongMark.gif'
+import skipButton from './brainium-skip.png';
 
 class App extends Component {
   constructor(props) {
@@ -111,9 +112,12 @@ getRandomInt = (min, max) => {
             <div dangerouslySetInnerHTML={{ __html: question.question }}></div><p/>
             <div style={{fontSize:"large",textAlign:"center",display:"flex",flexDirection:"row",justifyContent:"space-around",alignItems:"center",alignContent:"center"}}>
             {this.state.answers.map(answer => 
-              <div style={{color:"#463f57",padding:"20px",width:"20%",margin:"20px",backgroundColor:"coral",borderRadius:"15px"}} onClick={()=>this.checkAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }}>
+              <div style={{color:"#463f57",padding:"20px",width:"20%",margin:"20px",backgroundColor:"coral",borderRadius:"15px",fontWeight:"550"}} onClick={()=>this.checkAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }}>
               </div>
               )}
+            <div style={{padding:"1px",color:"#463f57",width:"20%",margin:"20px",backgroundColor:"coral",borderRadius:"15px"}}>
+              <img src={skipButton} style={{height:"56px"}} />
+            </div>
             </div>
           </div>
           )}
