@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
+import logo from './brainiumLogo.png'
 
 class App extends Component {
   constructor(props) {
@@ -80,7 +81,7 @@ getRandomInt = (min, max) => {
     return (
     <div className="App">
       <header className="App-header">
-        
+        <img src={logo} style={{width:"200px"}} />
         <p>
           Brainium
         </p>
