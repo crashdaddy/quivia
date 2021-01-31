@@ -15,6 +15,8 @@ class App extends Component {
         wrong: false,
         wrongAnswers: [],
         gameOver: false,
+        skipsLeft: 3,
+        skip: false,
         score: 0
     };
   }
@@ -32,10 +34,11 @@ getRandomInt = (min, max) => {
   }
 
   componentDidUpdate() {
-    if(this.state.correct || this.state.wrong) {
+    if(this.state.correct || this.state.wrong || this.state.skip) {
       this.setState({
         correct:false,
-        wrong: false
+        wrong: false,
+        skip:false
       })
       this.getQuestions()
     }
@@ -98,6 +101,18 @@ getRandomInt = (min, max) => {
 }
 }
 
+skipQuestion() {
+  let skipsLeft = this.state.skipsLeft;
+
+  skipsLeft--;
+  if (skipsLeft<0) skipsLeft=0;
+
+  this.setState({
+    skipsLeft:skipsLeft,
+    skip: true
+  })
+}
+
   render() {
     return (
     <div className="App">
@@ -115,11 +130,13 @@ getRandomInt = (min, max) => {
               <div style={{color:"#463f57",padding:"20px",width:"20%",margin:"20px",backgroundColor:"coral",borderRadius:"15px",fontWeight:"550"}} onClick={()=>this.checkAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }}>
               </div>
               )}
-            <div style={{padding:"1px",color:"#463f57",width:"20%",margin:"20px",backgroundColor:"coral",borderRadius:"15px"}}>
+            {this.state.skipsLeft>0 &&
+            <div style={{padding:"1px",color:"#463f57",width:"20%",margin:"20px",backgroundColor:"coral",borderRadius:"15px"}} onClick={()=>this.skipQuestion()}>
               <img src={skipButton} style={{height:"56px"}} />
             </div>
+            }
             </div>
-          </div>
+                      </div>
           )}
           <div style={{fontSize:"xxx-large"}}>
             {this.state.score}
