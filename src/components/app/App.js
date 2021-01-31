@@ -7,7 +7,8 @@ class App extends Component {
     this.state = {
         questions: [],
         answers: [],
-        correct: false
+        correct: false,
+        score: 0
     };
   }
 
@@ -21,6 +22,15 @@ getRandomInt = (min, max) => {
 
   componentDidMount() {
     this.getQuestions();
+  }
+
+  componentDidUpdate() {
+    if(this.state.correct) {
+      this.setState({
+        correct:false
+      })
+      this.getQuestions()
+    }
   }
 
   getQuestions = () => {
@@ -43,14 +53,24 @@ getRandomInt = (min, max) => {
   }
 
   checkAnswer(answer) {
+    let currentScore = this.state.score;
     if (answer===this.state.questions[0].correct_answer) {
-      console.log("correct") 
+      if(this.state.questions[0].difficulty==="easy") {
+        currentScore+=5;
+      } else if (this.state.questions[0].difficulty==="medium") {
+        currentScore+=10;
+      } else if (this.state.questions[0].difficulty==="hard") {
+        currentScore+=20;
+      }
       this.setState({
+        score:currentScore,
         correct:true
       })
     } else {
-      console.log("wrong");
+      currentScore-=5;
+      if (currentScore<0) currentScore=0;
       this.setState({
+        score:currentScore,
         correct:false
       })
   }
@@ -77,9 +97,9 @@ getRandomInt = (min, max) => {
             </div>
           </div>
           )}
-          {this.state.correct && 
+          {this.state.score && 
           <div>
-            You got it!
+            {this.state.score}
           </div>
           }
       </header>
