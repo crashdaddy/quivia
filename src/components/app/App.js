@@ -157,6 +157,10 @@ skipQuestion() {
             <HighScore score={this.state.score} />
           </div>
           }
+
+          <div>
+            <a href="/leaders" style={{color:"white"}}>LeaderBoard</a>
+          </div>
       </header>
     </div>
   );
