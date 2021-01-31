@@ -160,6 +160,11 @@ skipQuestion() {
           <div>
             <a href="/leaders" style={{color:"white"}}>LeaderBoard</a>
           </div>
+          <div style={{marginTop:"10px",fontSize:"small",color:'lightgreen',textAlign:"center"}}>
+            Data Provided By: <a href="https://opentdb.com/api_config.php" style={{color:"lightgreen"}}>
+            Open Trivia DB
+            </a>
+          </div>
       </header>
     </div>
   );
