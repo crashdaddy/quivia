@@ -106,9 +106,9 @@ getRandomInt = (min, max) => {
         
         <p/>
         {this.state.questions && !this.state.gameOver && this.state.questions.map( question => 
-          <div style={{width:"100%"}}>
+          <div style={{width:"100%",fontSize:"xx-large"}}>
             <div dangerouslySetInnerHTML={{ __html: question.question }}></div><p/>
-            <div style={{textAlign:"center",display:"flex",flexDirection:"row",justifyContent:"space-around",alignItems:"center",alignContent:"center"}}>
+            <div style={{fontSize:"large",textAlign:"center",display:"flex",flexDirection:"row",justifyContent:"space-around",alignItems:"center",alignContent:"center"}}>
             {this.state.answers.map(answer => 
               <div style={{padding:"20px",width:"20%",margin:"20px",backgroundColor:"blue"}} onClick={()=>this.checkAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }}>
               </div>
@@ -117,15 +117,11 @@ getRandomInt = (min, max) => {
           </div>
           )}
           {this.state.score && 
-          <div>
+          <div style={{fontSize:"xxx-large"}}>
             {this.state.score}
           </div>
           }
-          {this.state.wrong && 
-          <div>
-            incorrect
-          </div>
-          }
+ 
           <div style={{textAlign:"center",display:"flex",flexDirection:"row",justifyContent:"space-around",alignItems:"center",alignContent:"center"}}>
           {this.state.wrongAnswers && this.state.wrongAnswers.map(newWrong => 
           <div>
