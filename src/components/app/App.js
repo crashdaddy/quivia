@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import logo from './brainiumLogo.png'
+import brain from './brain.png'
 
 class App extends Component {
   constructor(props) {
@@ -10,6 +11,8 @@ class App extends Component {
         answers: [],
         correct: false,
         wrong: false,
+        wrongAnswers: [],
+        gameOver: false,
         score: 0
     };
   }
@@ -56,6 +59,8 @@ getRandomInt = (min, max) => {
   }
 
   checkAnswer(answer) {
+    let gameOver=this.state.gameOver;
+    if (!gameOver) {
     let currentScore = this.state.score;
     if (answer===this.state.questions[0].correct_answer) {
       if(this.state.questions[0].difficulty==="easy") {
@@ -71,15 +76,25 @@ getRandomInt = (min, max) => {
         wrong: false
       })
     } else {
+      let gameOver=false;
+      let totalWrong = this.state.wrongAnswers;
+      if(totalWrong.length<2) {
+        totalWrong.push("wrong");
+      } else {
+        gameOver=true
+      }
       currentScore-=5;
       if (currentScore<0) currentScore=0;
       this.setState({
         score:currentScore,
         correct:false,
+        wrongAnswers:totalWrong,
+        gameOver:gameOver,
         wrong: true
       })
   }
-  }
+}
+}
 
   render() {
     return (
@@ -110,6 +125,19 @@ getRandomInt = (min, max) => {
           {this.state.wrong && 
           <div>
             incorrect
+          </div>
+          }
+          <div style={{textAlign:"center",display:"flex",flexDirection:"row",justifyContent:"space-around",alignItems:"center",alignContent:"center"}}>
+          {this.state.wrongAnswers && this.state.wrongAnswers.map(newWrong => 
+          <div>
+          <img src={brain} style={{width:"100px",margin:"10px"}} />
+           </div>
+          )}
+          </div>
+
+          {this.state.gameOver && 
+          <div>
+            Game Over
           </div>
           }
       </header>
