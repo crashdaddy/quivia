@@ -111,17 +111,16 @@ getRandomInt = (min, max) => {
             <div dangerouslySetInnerHTML={{ __html: question.question }}></div><p/>
             <div style={{fontSize:"large",textAlign:"center",display:"flex",flexDirection:"row",justifyContent:"space-around",alignItems:"center",alignContent:"center"}}>
             {this.state.answers.map(answer => 
-              <div style={{padding:"20px",width:"20%",margin:"20px",backgroundColor:"blue"}} onClick={()=>this.checkAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }}>
+              <div style={{color:"#463f57",padding:"20px",width:"20%",margin:"20px",backgroundColor:"coral",borderRadius:"15px"}} onClick={()=>this.checkAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }}>
               </div>
               )}
             </div>
           </div>
           )}
-          {this.state.score && 
           <div style={{fontSize:"xxx-large"}}>
             {this.state.score}
           </div>
-          }
+          
  
           <div style={{textAlign:"center",display:"flex",flexDirection:"row",justifyContent:"space-around",alignItems:"center",alignContent:"center"}}>
           {this.state.wrongAnswers && this.state.wrongAnswers.map(newWrong => 
