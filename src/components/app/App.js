@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import logo from './brainium-logo2.png'
-import brain from './brain.png'
 import wrongMark from './brainium-wrongMark.gif'
 import skipButton from './brainium-skip.png';
 import HighScore from '../highscore/HighScore'
@@ -118,7 +117,7 @@ skipQuestion() {
     return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} style={{width:"200px"}} />
+        <img src={logo} style={{width:"200px"}} alt="" />
         <span style={{color:"lightgreen"}}>Wrinkle Your Brain</span>
         
         
@@ -133,7 +132,7 @@ skipQuestion() {
               )}
             {this.state.skipsLeft>0 &&
             <div style={{padding:"1px",color:"#463f57",width:"20%",margin:"20px",backgroundColor:"coral",borderRadius:"15px"}} onClick={()=>this.skipQuestion()}>
-              <img src={skipButton} style={{height:"56px"}} />
+              <img src={skipButton} style={{height:"56px"}} alt="" />
             </div>
             }
             </div>
@@ -147,7 +146,7 @@ skipQuestion() {
           <div style={{textAlign:"center",display:"flex",flexDirection:"row",justifyContent:"space-around",alignItems:"center",alignContent:"center"}}>
           {this.state.wrongAnswers && this.state.wrongAnswers.map(newWrong => 
           <div>
-          <img src={wrongMark} style={{width:"100px",margin:"10px",border:"1px solid grey",borderRadius:"15px"}} />
+          <img src={wrongMark} alt="" style={{width:"100px",margin:"10px",border:"1px solid grey",borderRadius:"15px"}} />
            </div>
           )}
           </div>

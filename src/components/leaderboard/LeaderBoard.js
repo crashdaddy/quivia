@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
+import logo from '../app/brainium-logo2.png'
 
 class LeaderBoard extends Component {
   constructor(props) {
@@ -33,6 +34,9 @@ class LeaderBoard extends Component {
     return (
     <div className="App">
       <header className="App-header">
+        <div style={{fontSize:"xx-large",color:"lightgreen",margin:"20px"}}>
+          <img src={logo} style={{width:"200px"}} alt=""/><br/>
+          Big Beautiful Bulging Brilliant Brainium Brains</div>
        {this.state.scores && this.state.scores.map(leader => <div>
 
          {leader.playerName} - {leader.score}

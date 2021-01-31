@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Router from './Router';
-import App from './components/app/App'
 
 const Main = () => (
 
