@@ -39,6 +39,9 @@ class LeaderBoard extends Component {
        </div>)
 
        }
+       <div style={{marginTop:"20px"}}>
+         <a href="/" style={{color:"white"}}>Back to Branium!</a>
+       </div>
       </header>
     </div>
   );
