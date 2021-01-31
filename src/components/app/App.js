@@ -9,6 +9,7 @@ class App extends Component {
         questions: [],
         answers: [],
         correct: false,
+        wrong: false,
         score: 0
     };
   }
@@ -26,9 +27,10 @@ getRandomInt = (min, max) => {
   }
 
   componentDidUpdate() {
-    if(this.state.correct) {
+    if(this.state.correct || this.state.wrong) {
       this.setState({
-        correct:false
+        correct:false,
+        wrong: false
       })
       this.getQuestions()
     }
@@ -65,14 +67,16 @@ getRandomInt = (min, max) => {
       }
       this.setState({
         score:currentScore,
-        correct:true
+        correct:true,
+        wrong: false
       })
     } else {
       currentScore-=5;
       if (currentScore<0) currentScore=0;
       this.setState({
         score:currentScore,
-        correct:false
+        correct:false,
+        wrong: true
       })
   }
   }
@@ -82,11 +86,11 @@ getRandomInt = (min, max) => {
     <div className="App">
       <header className="App-header">
         <img src={logo} style={{width:"200px"}} />
-        <p>
-          Brainium
-        </p>
+        <span>
+          Brainium - <span style={{color:"blue"}}>Wrinkle Your Brain</span>
+        </span>
         
-        <span style={{color:"blue"}}>Wrinkle Your Brain</span><p/>
+        <p/>
         {this.state.questions && this.state.questions.map( question => 
           <div style={{width:"100%"}}>
             <div dangerouslySetInnerHTML={{ __html: question.question }}></div><p/>
@@ -101,6 +105,11 @@ getRandomInt = (min, max) => {
           {this.state.score && 
           <div>
             {this.state.score}
+          </div>
+          }
+          {this.state.wrong && 
+          <div>
+            incorrect
           </div>
           }
       </header>
