@@ -5,9 +5,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        questions: []
+        questions: [],
+        answers: []
     };
   }
+
+  
+// generate a random number in the required range (min-max)
+getRandomInt = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
   componentDidMount() {
     this.getQuestions();
@@ -19,10 +28,16 @@ class App extends Component {
     fetch(url)
     .then(res=>res.json())
     .then(data => {
-      
+        let rightPosition = this.getRandomInt(0,2)
+     let answerArray = data.results[0].incorrect_answers
+     answerArray.splice(rightPosition,0,data.results[0].correct_answer)
+      console.log(answerArray)
       this.setState({
-        questions: data.results
+        questions: data.results,
+        answers: answerArray
       })
+   
+    
     })
   }
 
@@ -39,9 +54,8 @@ class App extends Component {
         {this.state.questions && this.state.questions.map( question => 
           <div>
             <div dangerouslySetInnerHTML={{ __html: question.question }}></div><p/>
-            {question.incorrect_answers.map(wrong => 
-              <div>
-                {wrong}
+            {this.state.answers.map(wrong => 
+              <div dangerouslySetInnerHTML={{ __html: wrong }}>
               </div>
               )}
           </div>
