@@ -78,11 +78,11 @@ getRandomInt = (min, max) => {
     } else {
       let gameOver=false;
       let totalWrong = this.state.wrongAnswers;
-      if(totalWrong.length<2) {
+      if(totalWrong.length<3) {
         totalWrong.push("wrong");
-      } else {
-        gameOver=true
       }
+      
+      if (totalWrong.length===3) {gameOver=true}
       currentScore-=5;
       if (currentScore<0) currentScore=0;
       this.setState({
@@ -130,7 +130,7 @@ getRandomInt = (min, max) => {
           <div style={{textAlign:"center",display:"flex",flexDirection:"row",justifyContent:"space-around",alignItems:"center",alignContent:"center"}}>
           {this.state.wrongAnswers && this.state.wrongAnswers.map(newWrong => 
           <div>
-          <img src={brain} style={{width:"100px",margin:"10px"}} />
+          <img src={brain} style={{width:"100px",margin:"10px",backgroundColor:"red"}} />
            </div>
           )}
           </div>
