@@ -169,7 +169,7 @@ skipQuestion() {
           }
 
           <div>
-            <a href="/leaders" style={{color:"white"}}>LeaderBoard</a>
+            <a href="/leaders" style={{color:"white"}}>BrainBoard</a>
             <a href="/contributors" style={{color:"white",marginLeft:"20px"}}>Contributors</a>
           </div>
           <div style={{marginTop:"10px",fontSize:"small",color:'lightgreen',textAlign:"center"}}>

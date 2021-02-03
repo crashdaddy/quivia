@@ -51,8 +51,8 @@ class HighScore extends Component {
    <div>
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} required />
+          Add Your Name to Our BrainBoard!:
+          <input style={{marginLeft:'5px',fontSize:'large'}} type="text" value={this.state.value} onChange={this.handleChange} required />
         </label>
         <input type="submit" value="Submit" />
       </form><p/>
