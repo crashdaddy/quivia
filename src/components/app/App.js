@@ -77,6 +77,8 @@ getRandomInt = (min, max) => {
       }
       this.setState({
         score:currentScore,
+        questions:[],
+        answers:[],
         correct:true,
         wrong: false
       })
@@ -93,6 +95,7 @@ getRandomInt = (min, max) => {
       this.setState({
         score:currentScore,
         correct:false,
+        
         wrongAnswers:totalWrong,
         gameOver:gameOver,
         wrong: true
@@ -108,6 +111,8 @@ skipQuestion() {
   if (skipsLeft<0) skipsLeft=0;
 
   this.setState({
+    questions:[],
+    answers:[],
     skipsLeft:skipsLeft,
     skip: true
   })
@@ -151,9 +156,15 @@ skipQuestion() {
           )}
           </div>
 
-          {this.state.gameOver && 
+          {this.state.gameOver && this.state.score>0
+          
+          ?
           <div>
             <HighScore score={this.state.score} />
+          </div>
+          :
+          <div>
+            Try to get a high score!
           </div>
           }
 
