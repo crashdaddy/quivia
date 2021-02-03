@@ -50,7 +50,7 @@ class LeaderBoard extends Component {
            </div>
         </div>
          <div style={{marginTop:"20px"}}>
-         <a href="/" style={{color:"white"}}>Back to Branium!</a>
+         <a href="/" style={{color:"white"}}>Back to Brainium!</a>
        </div>
       </header>
     </div>
