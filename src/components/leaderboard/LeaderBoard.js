@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import logo from '../app/brainium-logo2.png'
+import loader from './loader.gif'
 
 class LeaderBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scores: []
+      scores: [],
+      loading: true
     };
   }
 
@@ -23,7 +25,8 @@ class LeaderBoard extends Component {
     .then(res=>res.json())
     .then(data => {
       this.setState({
-        scores: data
+        scores: data,
+        loading: false
       })
        
     })
@@ -41,8 +44,12 @@ class LeaderBoard extends Component {
 
          {leader.playerName} - {leader.score}
        </div>)
-
        }
+      {this.state.loading &&
+      <div>
+        <img src={loader} alt="" style={{width:'100px'}}/> Loading High Scores
+      </div>
+  }
        <div style={{marginTop:"20px"}}>
          <a href="/" style={{color:"white"}}>Back to Brainium!</a>
        </div>
